@@ -28,7 +28,6 @@
             align-items: center;
             background: transparent;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            padding: 8px;
         }
         
         .clock-container {
@@ -57,9 +56,6 @@
         
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            body {
-                padding: 4px;
-            }
             .clock-container {
                 padding: 12px 20px;
                 border-radius: 12px;
@@ -95,7 +91,7 @@
             const day = now.getDate();
             const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
             const weekday = weekdays[now.getDay()];
-            document.getElementById('date').textContent = `${year}年${月}月${day}日（${weekday}）`;
+            document.getElementById('date').textContent = `${year}年${month}月${day}日（${weekday}）`;
         }
         
         // 初回実行
