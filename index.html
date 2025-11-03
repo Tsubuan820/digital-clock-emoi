@@ -26,14 +26,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             background: transparent;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 8px;
         }
         
         .clock-container {
             text-align: center;
-            padding: 24px 40px;
+            padding: 16px 28px;
             background: linear-gradient(135deg, #5e89e6 0%, #c0a2fa 50%, #edaefc 100%);
             border-radius: 16px;
         }
@@ -51,14 +51,17 @@
             font-size: 18px;
             color: #ffffff;
             opacity: 0.9;
-            margin-top: 8px;
+            margin-top: 6px;
             font-weight: 500;
         }
         
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
+            body {
+                padding: 4px;
+            }
             .clock-container {
-                padding: 20px 30px;
+                padding: 12px 20px;
                 border-radius: 12px;
             }
             .time {
@@ -92,7 +95,7 @@
             const day = now.getDate();
             const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
             const weekday = weekdays[now.getDay()];
-            document.getElementById('date').textContent = `${year}年${month}月${day}日（${weekday}）`;
+            document.getElementById('date').textContent = `${year}年${月}月${day}日（${weekday}）`;
         }
         
         // 初回実行
