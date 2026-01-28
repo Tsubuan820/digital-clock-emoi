@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="normal">
   <title>Digital Clock</title>
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: normal;
     }
 
     html, body {
@@ -17,6 +17,7 @@
       height: 100%;
       overflow: hidden;
       background: transparent !important;
+      background-color: transparent !important;
     }
 
     * {
@@ -57,7 +58,6 @@
       font-weight: 500;
     }
 
-    /* レスポンシブ対応 */
     @media (max-width: 768px) {
       .clock-container {
         padding: 16px 32px;
