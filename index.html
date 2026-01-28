@@ -1,117 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>2025-digitalclock</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-        
-        .clock-container {
-            width: 100%;
-            text-align: center;
-            padding: 20px 40px;
-            background: linear-gradient(135deg, #5e89e6 0%, #c0a2fa 50%, #edaefc 100%);
-            border-radius: 16px;
-        }
-        
-        .time {
-            font-size: 72px;
-            font-weight: 600;
-            color: #ffffff;
-            letter-spacing: 0.05em;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-        
-        .date {
-            font-size: 18px;
-            color: #ffffff;
-            opacity: 0.9;
-            margin-top: 8px;
-            font-weight: 500;
-        }
-        
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            .clock-container {
-                padding: 16px 32px;
-                border-radius: 12px;
-            }
-            .time {
-                font-size: 48px;
-            }
-            .date {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Digital Clock</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent !important;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .clock-container {
+      width: 100%;
+      text-align: center;
+      padding: 20px 40px;
+      background: linear-gradient(135deg, #5e89e6 0%, #c0a2fa 50%, #edaefc 100%);
+      border-radius: 16px;
+    }
+
+    .time {
+      font-size: 72px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .date {
+      font-size: 18px;
+      color: #ffffff;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .clock-container {
+        padding: 16px 32px;
+        border-radius: 12px;
+      }
+      .time {
+        font-size: 48px;
+      }
+      .date {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="clock-container">
-        <div class="time" id="clock">00:00:00</div>
-        <div class="date" id="date">2025年11月3日</div>
-    </div>
+  <div class="clock-container">
+    <div class="time" id="clock">00:00:00</div>
+    <div class="date" id="date">2025年11月3日</div>
+  </div>
 
-    <script>
-        function updateClock() {
-            const now = new Date();
-            
-            // 時刻の取得と表示
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-            
-            // 日付の取得と表示
-            const year = now.getFullYear();
-            const month = now.getMonth() + 1;
-            const day = now.getDate();
-            const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
-            const weekday = weekdays[now.getDay()];
-            document.getElementById('date').textContent = `${year}年${month}月${day}日（${weekday}）`;
-        }
-        
-        // 初回実行
-        updateClock();
-        
-        // 1秒ごとに更新
-        setInterval(updateClock, 1000);
-    </script>
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+      const weekday = weekdays[now.getDay()];
+      document.getElementById('date').textContent = `${year}年${month}月${day}日（${weekday}）`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 </body>
-</html>
-    
-  </body>
-  
 </html>
